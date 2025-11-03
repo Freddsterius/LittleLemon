@@ -1,1 +1,2 @@
 New file
+Added this line for the sake of a 'git pull'
