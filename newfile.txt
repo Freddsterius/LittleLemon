@@ -1,2 +1,3 @@
 New file
 Added this line for the sake of a 'git pull'
+Test: reordering the folder structure
