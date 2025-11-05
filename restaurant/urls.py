@@ -5,5 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('menu/', views.MenuItemsView.as_view(), name="menu"),
-    path('menu/<int:pk>', views.SingleMenuItemView.as_view(), name="single-menu-item")
+    path('menu/<int:pk>', views.SingleMenuItemView.as_view(),
+         name="single-menu-item"),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
 ]
