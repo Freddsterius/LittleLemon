@@ -31,6 +31,8 @@ urlpatterns = [
     path('restaurant/', include('restaurant.urls')),
     path('restaurant/', include(restaurant.urls)),
     path('restaurant/', include(router.urls)),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.authtoken')),
 ]
 
 # from myapp.views import UserViewSet
