@@ -15,7 +15,7 @@ class Menu(models.Model):
 class Booking(models.Model):
     name = models.CharField(max_length=255)
     no_of_guests = models.SmallIntegerField()
-    booking_date = models.DateTimeField()
+    pi = models.DateTimeField()
 
     def __str__(self):
         return f'{self.name} {self.booking_date}'
