@@ -25,14 +25,14 @@ import restaurant
 router = DefaultRouter()
 router.register(r'booking/tables', views.BookingViewSet)
 router.register(r'users', views.UserViewSet)
-# router.register(r'tables', views.BookingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),
-    path('restaurant/', include(restaurant.urls)),
-    path('restaurant/', include(router.urls)),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.authtoken')),
+
+    path('api/restaurant/', include(restaurant.urls)),
+    path('api/restaurant/', include(router.urls)),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.authtoken')),
     path('api-token-auth/', obtain_auth_token),
 ]
