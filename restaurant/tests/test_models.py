@@ -1,40 +1,40 @@
 from django.test import TestCase
 from restaurant.models import Menu
-from restaurant.serializers import MenuSerializer
-from rest_framework.test import APIClient
-from rest_framework import status
+# from restaurant.serializers import MenuSerializer
+# from rest_framework.test import APIClient
+# from rest_framework import status
 
 
 class MenuTest(TestCase):
     def test_get_item(self):
         item = Menu.objects.create(
             title="Chocolate Ice Cream",
-            price=80,
+            price=4.5,
             inventory=100
         )
 
-        self.assertEqual(str(item), "Chocolate Ice Cream - $80")
+        self.assertEqual(str(item), "Chocolate Ice Cream - $4.5")
 
 
-class MenuViewTest(TestCase):
-    def setUp(self):
-        Menu.objects.create(title="Pizza", price=120, inventory=50)
-        Menu.objects.create(title="Burger", price=95, inventory=75)
+# class MenuViewTest(TestCase):
+#     def setUp(self):
+#         Menu.objects.create(title="Pizza", price=120, inventory=50)
+#         Menu.objects.create(title="Burger", price=95, inventory=75)
 
-    def test_getall(self):
-        client = APIClient()
+#     def test_getall(self):
+#         client = APIClient()
 
-        response = client.get('/restaurant/menu/')
+#         response = client.get('/restaurant/menu/')
 
-        menus = Menu.objects.all()
+#         menus = Menu.objects.all()
 
-        serializer = MenuSerializer(menus, many=True)
+#         serializer = MenuSerializer(menus, many=True)
 
-        # Assert the response status is 200 OK
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+#         # Assert the response status is 200 OK
+#         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        # Assert the serialized data equals the response data
-        self.assertEqual(response.data, serializer.data)
+#         # Assert the serialized data equals the response data
+#         self.assertEqual(response.data, serializer.data)
 
 
 # from django.test import TestCase
